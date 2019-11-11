@@ -1,0 +1,2 @@
+class Grip < ApplicationRecord
+end
