@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  operator_id: 1
+  weapon_id: 1
+  laser: false
+  sight_id: 1
+  barrel_id: 1
+  grip_id: 1
+
+two:
+  operator_id: 1
+  weapon_id: 1
+  laser: false
+  sight_id: 1
+  barrel_id: 1
+  grip_id: 1

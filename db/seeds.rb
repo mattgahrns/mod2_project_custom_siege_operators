@@ -5,5 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-# hmmmm
+<<<<<<< HEAD
+=======
+# this is a comment to test pushing
+>>>>>>> 4c91d108dcaa9434c69257b8c7e7fce89daad5a6
