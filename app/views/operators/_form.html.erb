@@ -1,0 +1,13 @@
+<label>Operator Name:</label>
+<%= text_field_tag :name %><br>
+ 
+<label for="operator_attacker_true">Attacker
+<%= radio_button("operator", "attacker", true) %>
+</label>
+<label for="operator_attacker_false">Defender
+<%= radio_button("operator", "attacker", false) %>
+</label>
+
+
+ 
+<br><br><%= submit_tag %>
