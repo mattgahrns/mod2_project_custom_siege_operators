@@ -1,4 +1,14 @@
 <h1>Create A New Operator</h1>
-<%= form_for @operator do %>
-    <%= render 'form' %>
+<%= form_tag operators_path do %>
+    <label for="name">Operator Name:</label>
+    <%= text_field_tag "operator[name]" %><br><br>
+    
+    <label for="operator_attacker_true">Attacker:
+    <%= radio_button("operator", "attacker", true) %>
+    </label>
+    <label for="operator_attacker_false">Defender:
+    <%= radio_button("operator", "attacker", false) %> <br> <br>
+    </label>
+
+    <%= submit_tag "Continue" %>
 <% end %>

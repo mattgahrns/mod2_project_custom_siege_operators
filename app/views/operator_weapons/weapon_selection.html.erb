@@ -1,0 +1,36 @@
+    
+<%= form_tag operator_weapons_path do %>
+
+    <label for="primary">Primary Weapon:</label>
+    <%= collection_select(:operator_weapon, :id, @primary_weapons, :id, :name, prompt: true) %> <br><br>
+
+    <label for="primary_sight">Sight:</label>
+    <%= collection_select(:operator_weapon, :id, @sights, :id, :name, prompt: true) %> <br><br>
+
+    <label for="primary_barrel">Barrel Attachment:</label>
+    <%= collection_select(:operator_weapon, :id, @barrels, :id, :name, prompt: true) %> <br><br>
+
+    <label for="primary_barrel">Grip:</label>
+    <%= collection_select(:operator_weapon, :id, @grips, :id, :name, prompt: true) %> <br><br>
+
+    <label for="primary_laser">Laser:</label>
+    <%= check_box :laser, :laser %> <br> <br>
+
+    <label for="secondary">Secondary Weapon:</label>
+    <%= collection_select(:operator_weapon, :id, @secondary_weapons, :id, :name, prompt: true) %> <br><br>
+
+    <label for="secondary_sight">Sight:</label>
+    <%= collection_select(:operator_weapon, :id, @sights, :id, :name, prompt: true) %> <br><br>
+
+    <label for="secondary_barrel">Barrel Attachment:</label>
+    <%= collection_select(:operator_weapon, :id, @barrels, :id, :name, prompt: true) %> <br><br>
+
+    <label for="secondary_barrel">Grip:</label>
+    <%= collection_select(:operator_weapon, :id, @grips, :id, :name, prompt: true) %> <br><br>
+
+    <label for="secondary_laser">Laser:</label>
+    <%= check_box :laser, :laser %> <br> <br>
+
+    <%= submit_tag "Submit" %>
+
+<% end %>

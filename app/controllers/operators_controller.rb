@@ -1,3 +1,4 @@
+# require 'pry'
 class OperatorsController < ApplicationController
 
     def index
@@ -6,20 +7,33 @@ class OperatorsController < ApplicationController
 
     def new
         @operator = Operator.new
-        @attk_gadgets = Gadget.where(attacker: true).order(:name)
-        @def_gadgets = Gadget.where(attacker: false).order(:name)
-        @primary_weapons = Weapon.where(primary: true).order(:name)
-        @secondary_weapons = Weapon.where(primary: false).order(:name)
-        @attk_utility = Utility.where(attacker: true).order(:name)
-        @def_utility = Utility.where(attacker: false).order(:name)
-        @sights = Sight.all
-        @barrels = Barrel.all
-        @grips = Grip.all
+    end
+
+    def selection
+        @operator = Operator.find(params[:id])
+        
+        if @operator.attacker == true
+            @gadgets = Gadget.where(attacker: true).order(:name)
+            @utility = Utility.where(attacker: true).order(:name)
+            @type = "Attacker"
+        else
+            @gadgets = Gadget.where(attacker: false).order(:name)
+            @utility = Utility.where(attacker: false).order(:name)
+            @type = "Defender"
+        end
+        
     end
 
     def create
-        @operator = Operator.create(operator_params)
-        redirect_to operator_path(@operator)
+        @operator = Operator.create(operator_params(:name, :attacker, :user_id))
+        redirect_to "/operators/#{@operator.id}/selection"
+        
+    end
+
+    def update
+        @operator = Operator.find(params[:id])
+        @operator.update(operator_params(:gadget_id, :utility_id, :type))
+        redirect_to "/operators/#{@operator.id}/weapon_selection"
     end
 
     def show
@@ -29,7 +43,7 @@ class OperatorsController < ApplicationController
 
     private
 
-    def operator_params
-        params.require(:operator).permit(:name, :attacker, :gadget_id, :utility_id, :user_id)
+    def operator_params(*args)
+        params.require(:operator).permit(*args)
     end
 end

@@ -1,0 +1,24 @@
+<h1>Now Select Your Weapons, Gadget, Utility, and Speed/Armor For Your New <%= @type %> Named <%= params[:name] %></h1>
+
+<%= form_tag "/operators/#{@operator.id}" do %> 
+    
+    <label for="gadget">Gadget:</label>
+    <%= collection_select(:operator, :gadget_id, @gadgets, :id, :name, prompt: true) %> <br><br>
+
+    <label for="utility">Utility:</label>
+    <%= collection_select(:operator, :utility_id, @utility.all, :id, :name, prompt: true) %> <br><br>
+
+    <label for="operator_speedarmor_3 Speed 1 Armor">3 Speed 1 Armor:
+    <%= radio_button("operator", "speedarmor", "3 Speed 1 Armor") %>
+    </label>
+
+    <label for="operator_speedarmor_2 Speed 2 Armor">2 Speed 2 Armor:
+    <%= radio_button("operator", "speedarmor", "2 Speed 2 Armor") %>
+    </label>
+
+    <label for="operator_speedarmor_1 Speed 3 Armor">1 Speed 3 Armor:
+    <%= radio_button("operator", "speedarmor", "1 Speed 3 Armor") %> 
+    </label>
+    
+    <br><br><%= submit_tag "Submit" %>
+<% end %>
