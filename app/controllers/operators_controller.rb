@@ -32,7 +32,7 @@ class OperatorsController < ApplicationController
 
     def update
         @operator = Operator.find(params[:id])
-        @operator.update(operator_params(:gadget_id, :utility_id, :type))
+        @operator.update(operator_params(:gadget_id, :utility_id, :speedarmor))
         redirect_to "/operators/#{@operator.id}/weapon_selection"
     end
 
