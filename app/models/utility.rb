@@ -1,3 +1,3 @@
 class Utility < ApplicationRecord
-    belongs_to :operator
+    has_many :operators
 end

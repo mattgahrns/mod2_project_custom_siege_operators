@@ -1,3 +1,3 @@
 class Sight < ApplicationRecord
-    belongs_to :operator_weapon
+    has_many :operator_weapons
 end

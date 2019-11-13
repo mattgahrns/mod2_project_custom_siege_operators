@@ -10,6 +10,7 @@ class OperatorsController < ApplicationController
     end
 
     def selection
+        
         @operator = Operator.find(params[:id])
         
         if @operator.attacker == true
@@ -25,6 +26,9 @@ class OperatorsController < ApplicationController
     end
 
     def create
+        # @user = User.find(1)
+        # params[:operator][:user_id] = @user.id
+        # binding.pry
         @operator = Operator.create(operator_params(:name, :attacker, :user_id))
         redirect_to "/operators/#{@operator.id}/selection"
     end

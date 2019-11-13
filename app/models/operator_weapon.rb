@@ -1,8 +1,7 @@
 class OperatorWeapon < ApplicationRecord
     belongs_to :operator
     belongs_to :weapon
-    has_one :barrel
-    has_one :grip
-    has_one :laser
-    has_one :sight
+    belongs_to :barrel
+    belongs_to :grip
+    belongs_to :sight
 end

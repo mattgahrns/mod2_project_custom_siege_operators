@@ -187,3 +187,6 @@ Weapon.create(name: "Keratos .357", primary: false)
 Weapon.create(name: "L85A2", primary: true)
 Weapon.create(name: "LFP586", primary: false)
 Weapon.create(name: "LMG-E", primary: true)
+
+
+n1 = User.create(username: "hal", password_digest: "to")
