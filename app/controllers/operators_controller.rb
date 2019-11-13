@@ -46,7 +46,7 @@ class OperatorsController < ApplicationController
         else
             @type = "Defender"
         end
-
+        @weapons = @operator.getWeapons
     end
 
 

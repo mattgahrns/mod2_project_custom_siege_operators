@@ -1,5 +1,27 @@
 <h1><%= @operator.name %></h1>
-<p><%= @type %></p>
-<p><%= @operator.gadget %></p>
-<p><%= @operator.utility %></p>
-<p><%= @operator.speedarmor %></p>
+<p><b>Class: </b><%= @type %></p>
+<p><b>Gadget: </b><%= @operator.gadget.name %></p>
+<p><b>Utility: </b><%= @operator.utility.name %></p>
+<p><b>Speed and Armor: </b><%= @operator.speedarmor %></p>
+<p><b>Primary: </b><%=@weapons[0].weapon.name %></p>
+<ul>
+    <li>Sight: <%= @weapons[0].sight.name %></li>
+    <li>Barrel Attachment: <%= @weapons[0].barrel.name %></li>
+    <li>Grip: <%= @weapons[0].grip.name %></li>
+    <% if @weapons[0].laser == true %>
+        <li>Laser: Yes</li>
+    <% else %>
+        <li>Laser: No</li>
+    <% end %>
+</ul>
+<p><b>Secondary: </b><%= @weapons[1].weapon.name %></p>
+<ul>
+    <li>Sight: <%= @weapons[1].sight.name %></li>
+    <li>Barrel Attachment: <%= @weapons[1].barrel.name %></li>
+    <li>Grip: <%= @weapons[1].grip.name %></li>
+    <% if @weapons[1].laser == true %>
+        <li>Laser: Yes</li>
+    <% else %>
+        <li>Laser: No</li>
+    <% end %>
+</ul>
