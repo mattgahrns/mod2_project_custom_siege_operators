@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'operators/:id', to: 'operators#show'
   post 'operators', to: 'operators#create'
   get 'operators/:id/weapon_selection', to: 'operator_weapons#weapon_selection'
-  post 'operator_weapons', to: 'operator_weapons#create'
+  post 'operator_weapons/:id', to: 'operator_weapons#create'
   post 'operators/:id', to: 'operators#update'
+  get 'operators/:id/secondary_selection', to: 'operator_weapons#secondary_selection'
+  post 'operator_weapons/:id/secondary', to: 'operator_weapons#create_secondary'
 end

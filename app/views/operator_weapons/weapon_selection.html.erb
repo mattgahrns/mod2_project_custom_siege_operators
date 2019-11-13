@@ -1,35 +1,21 @@
-    
-<%= form_tag operator_weapons_path do %>
+<h1>Now Select Your Primary Weapon and Attachments For Your New <%= @type %> Named <%= @operator.name %></h1>    
+
+<%= form_tag "/operator_weapons/#{@operator.id}" do %>
 
     <label for="primary">Primary Weapon:</label>
-    <%= collection_select(:operator_weapon, :id, @primary_weapons, :id, :name, prompt: true) %> <br><br>
+    <%= collection_select(:operator_weapon, :weapon_id, @primary_weapons, :id, :name, prompt: true) %> <br><br>
 
     <label for="primary_sight">Sight:</label>
-    <%= collection_select(:operator_weapon, :id, @sights, :id, :name, prompt: true) %> <br><br>
+    <%= collection_select(:operator_weapon, :sight_id, @sights, :id, :name, prompt: true) %> <br><br>
 
     <label for="primary_barrel">Barrel Attachment:</label>
-    <%= collection_select(:operator_weapon, :id, @barrels, :id, :name, prompt: true) %> <br><br>
+    <%= collection_select(:operator_weapon, :barrel_id, @barrels, :id, :name, prompt: true) %> <br><br>
 
     <label for="primary_barrel">Grip:</label>
-    <%= collection_select(:operator_weapon, :id, @grips, :id, :name, prompt: true) %> <br><br>
+    <%= collection_select(:operator_weapon, :grip_id, @grips, :id, :name, prompt: true) %> <br><br>
 
     <label for="primary_laser">Laser:</label>
-    <%= check_box :laser, :laser %> <br> <br>
-
-    <label for="secondary">Secondary Weapon:</label>
-    <%= collection_select(:operator_weapon, :id, @secondary_weapons, :id, :name, prompt: true) %> <br><br>
-
-    <label for="secondary_sight">Sight:</label>
-    <%= collection_select(:operator_weapon, :id, @sights, :id, :name, prompt: true) %> <br><br>
-
-    <label for="secondary_barrel">Barrel Attachment:</label>
-    <%= collection_select(:operator_weapon, :id, @barrels, :id, :name, prompt: true) %> <br><br>
-
-    <label for="secondary_barrel">Grip:</label>
-    <%= collection_select(:operator_weapon, :id, @grips, :id, :name, prompt: true) %> <br><br>
-
-    <label for="secondary_laser">Laser:</label>
-    <%= check_box :laser, :laser %> <br> <br>
+    <%= check_box :operator_weapon, :laser %> <br> <br>
 
     <%= submit_tag "Submit" %>
 

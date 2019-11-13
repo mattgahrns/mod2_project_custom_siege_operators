@@ -27,7 +27,6 @@ class OperatorsController < ApplicationController
     def create
         @operator = Operator.create(operator_params(:name, :attacker, :user_id))
         redirect_to "/operators/#{@operator.id}/selection"
-        
     end
 
     def update
@@ -38,6 +37,12 @@ class OperatorsController < ApplicationController
 
     def show
         @operator = Operator.find(params[:id])
+        if @operator.attacker == true
+            @type = "Attacker"
+        else
+            @type = "Defender"
+        end
+
     end
 
 
