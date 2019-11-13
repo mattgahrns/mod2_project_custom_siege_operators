@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   post 'operators/:id', to: 'operators#update'
   get 'operators/:id/secondary_selection', to: 'operator_weapons#secondary_selection'
   post 'operator_weapons/:id/secondary', to: 'operator_weapons#create_secondary'
+  resources :users, only: [:new, :create, :edit, :update, :show]
 end
