@@ -49,14 +49,20 @@ class UsersController < ApplicationController
         if @user.id.to_s != session[:user_id]
             flash[:notice] = "You can't delete other users!"
             redirect_to user_path(@user)
+        else
+            redirect_to "/users/#{@user.id}/confirm_account_deletion"
         end
     end
 
-    def destroy
+    def confirm
+        @user = User.find(params[:id])
+    end
+
+    def destroy 
         @user = User.find(params[:id])
         @user.destroy
         session.delete(:user_id)
-        redirect_to login_path, notice: "Logged out!"
+        redirect_to login_path, notice: "Account deleted!"
     end
 
     private
