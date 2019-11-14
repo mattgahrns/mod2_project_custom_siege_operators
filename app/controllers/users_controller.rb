@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
     def create
         if @user = User.create(user_params)
+            flash[:notice] = "Account created successfully!"
             redirect_to user_path(@user)
         else
             flash.now[:error] = "Username already taken please choose a different one!"
@@ -31,5 +32,8 @@ class UsersController < ApplicationController
         params.require(:user).permit(:username, :password, :password_confirmation)
     end
 
+    def require_login
+        return head(:forbidden) unless session.include? :user_id
+    end
 
 end

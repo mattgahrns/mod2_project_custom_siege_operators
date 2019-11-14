@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   post 'operator_weapons/:id/secondary', to: 'operator_weapons#create_secondary'
   resources :users, only: [:new, :create, :edit, :update, :show, :delete, :destroy]
   get 'users/:id/confirm_account_deletion', to: 'users#confirm'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end
