@@ -3,6 +3,7 @@
 <%= flash[:error] %>
 <% end %>
 <%= form_tag "/operators" do %>
+    <%= tag :input, :type => 'hidden', :name => 'timestamp', :value => @stale_form_check_timestamp %>
     <label for="name">Operator Name:</label>
     <%= text_field_tag "operator[name]" %><br><br>
     

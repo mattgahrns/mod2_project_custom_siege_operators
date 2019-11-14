@@ -25,6 +25,7 @@
         <li>Laser: No</li>
     <% end %>
 </ul>
+<h4>* Some attachments may not actually be available for the specific weapons in game. *</h4>
 <br>
 <% if @user.id.to_s == session[:user_id] %>
     <%= link_to "Delete Operator", "/operators/#{@operator.id}/delete" %>

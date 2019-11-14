@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mod2ProjectCustomSiegeOperators</title>
+    <title>Rainbow Six Siege Custom Operators</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,7 @@
   </head>
 
   <body>
-
+    <div id="navbar">
     <% if current_user %>
       <!-- current_user will return true if a user is logged in -->
       <b><%= "Logged in as #{current_user.username}" %></b> | <%= link_to 'Home', operators_path %> | <%= link_to 'New Operator', operators_new_path %> | <%= link_to 'My Operators', "/users/#{current_user.id}/operators" %> | <%= link_to 'My Account', user_path(current_user) %> | <%= link_to 'Log Out', logout_path, method: :delete %>
@@ -18,7 +18,9 @@
       <!-- not logged in -->
       <%= link_to 'Home', operators_path %> | <%= link_to 'Log In', login_path %> or <%= link_to 'Sign Up', new_user_path %>
     <% end %>
+    </div>
     <hr>
+
 
     <% if notice %>
       <%= notice %>

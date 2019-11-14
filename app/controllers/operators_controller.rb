@@ -8,6 +8,7 @@ class OperatorsController < ApplicationController
 
     def new
         @operator = Operator.new
+        @stale_form_check_timestamp = Time.now.to_i
     end
 
     def selection
@@ -32,6 +33,8 @@ class OperatorsController < ApplicationController
         @operator = Operator.new(operator_params(:name, :attacker, :user_id))
         if params[:operator][:attacker]
             @operator.save
+            @stale_form_check_timestamp = Time.now.to_i
+            session[:last_created_at] = @stale_form_check_timestamp
             redirect_to "/operators/#{@operator.id}/selection"
         else
             flash.now[:error] = "You must select Attacker or Defender!"
