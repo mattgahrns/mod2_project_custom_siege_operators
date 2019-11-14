@@ -65,6 +65,11 @@ class UsersController < ApplicationController
         redirect_to login_path, notice: "Account deleted!"
     end
 
+    def operators
+        @user = User.find(params[:id])
+        @operators = Operator.where("user_id = ?", @user.id)
+    end
+
     private
 
     def user_params

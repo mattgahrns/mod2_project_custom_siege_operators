@@ -1,4 +1,4 @@
-<h1><%= @operator.name %></h1>
+<h1><%= @operator.name %> - Made by: <%= link_to @user.username, "/users/#{@user.id}/operators" %></h1>
 <p><b>Class: </b><%= @type %></p>
 <p><b>Gadget: </b><%= @operator.gadget.name %></p>
 <p><b>Utility: </b><%= @operator.utility.name %></p>

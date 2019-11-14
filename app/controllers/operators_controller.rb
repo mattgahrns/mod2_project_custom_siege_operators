@@ -41,6 +41,7 @@ class OperatorsController < ApplicationController
 
     def show
         @operator = Operator.find(params[:id])
+        @user = @operator.user
         if @operator.attacker == true
             @type = "Attacker"
         else
