@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   get '/users/:id/delete', to: 'users#delete'
   get '/users/:id/account_deleted', to: 'users#destroy'
   get 'users/:id/operators', to: 'users#operators'
+
+  get 'operators/:id/confirm_operator_deletion', to: 'operators#confirm'
+  get '/operators/:id/delete', to: 'operators#delete'
+  get '/operators/:id/operator_deleted', to: 'operators#destroy'
 end

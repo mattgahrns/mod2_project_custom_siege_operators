@@ -61,6 +61,21 @@ class OperatorsController < ApplicationController
         @weapons = @operator.getWeapons
     end
 
+    def delete
+        @operator = Operator.find(params[:id])
+        redirect_to "/operators/#{@operator.id}/confirm_operator_deletion"
+    end
+
+    def confirm
+        @operator = Operator.find(params[:id])
+    end
+
+    def destroy 
+        @operator = Operator.find(params[:id])
+        @operator.destroy
+        redirect_to "/users/#{session[:user_id]}/operators", notice: "Operator deleted!"
+    end
+
 
     private
 

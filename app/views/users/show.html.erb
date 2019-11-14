@@ -1,3 +1,4 @@
 <h1><%= @user.username %></h1>
-<%= link_to "Edit", edit_user_path(@user) %>
-<%= link_to "Delete", "/users/#{@user.id}/delete" %>
+<% if @user.id.to_s == session[:user_id] %>
+    <%= link_to 'My Operators', "/users/#{current_user.id}/operators" %>    |    <%= link_to "Edit Username/Password", edit_user_path(@user) %>    |    <%= link_to "Delete Account", "/users/#{@user.id}/delete" %>
+<% end %>
