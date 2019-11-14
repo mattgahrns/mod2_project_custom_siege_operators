@@ -1,4 +1,7 @@
 <h1>Create A New Operator</h1>
+<% if flash[:error] %>
+<%= flash[:error] %>
+<% end %>
 <%= form_tag "/operators" do %>
     <label for="name">Operator Name:</label>
     <%= text_field_tag "operator[name]" %><br><br>

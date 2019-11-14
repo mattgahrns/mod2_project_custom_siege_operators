@@ -29,14 +29,25 @@ class OperatorsController < ApplicationController
     def create
         @user = User.find(session[:user_id])
         params[:operator][:user_id] = @user.id
-        @operator = Operator.create(operator_params(:name, :attacker, :user_id))
-        redirect_to "/operators/#{@operator.id}/selection"
+        @operator = Operator.new(operator_params(:name, :attacker, :user_id))
+        if @operator.valid?
+            @operator.save
+            redirect_to "/operators/#{@operator.id}/selection"
+        else
+            flash.now[:error] = "You must select Attacker or Defender!"
+            render :new
+        end
     end
 
     def update
         @operator = Operator.find(params[:id])
-        @operator.update(operator_params(:gadget_id, :utility_id, :speedarmor))
-        redirect_to "/operators/#{@operator.id}/weapon_selection"
+        if params[:operator][:speedarmor]
+            @operator.update(operator_params(:gadget_id, :utility_id, :speedarmor))
+            redirect_to "/operators/#{@operator.id}/weapon_selection"
+        else
+            flash[:error] = "You must select a Speed and Armor combination!"
+            redirect_to "/operators/#{@operator.id}/selection"
+        end
     end
 
     def show

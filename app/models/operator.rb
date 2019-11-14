@@ -4,6 +4,7 @@ class Operator < ApplicationRecord
     belongs_to :gadget, optional: true
     belongs_to :utility, optional: true
     belongs_to :user, optional: true
+    validates :attacker, presence: true
 
     def getWeapons
         temp = OperatorWeapon.where("operator_id = ?", self.id)

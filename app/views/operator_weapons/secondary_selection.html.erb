@@ -3,16 +3,16 @@
 <%= form_tag "/operator_weapons/#{@operator.id}/secondary" do %>
 
     <label for="secondary">Secondary Weapon:</label>
-    <%= collection_select(:operator_weapon, :weapon_id, @secondary_weapons, :id, :name, prompt: true) %> <br><br>
+    <%= collection_select(:operator_weapon, :weapon_id, @secondary_weapons, :id, :name) %> <br><br>
 
     <label for="secondary_sight">Sight:</label>
-    <%= collection_select(:operator_weapon, :sight_id, @sights, :id, :name, prompt: true) %> <br><br>
+    <%= collection_select(:operator_weapon, :sight_id, @sights, :id, :name) %> <br><br>
 
     <label for="secondary_barrel">Barrel Attachment:</label>
-    <%= collection_select(:operator_weapon, :barrel_id, @barrels, :id, :name, prompt: true) %> <br><br>
+    <%= collection_select(:operator_weapon, :barrel_id, @barrels, :id, :name) %> <br><br>
 
     <label for="secondary_barrel">Grip:</label>
-    <%= collection_select(:operator_weapon, :grip_id, @grips, :id, :name, prompt: true) %> <br><br>
+    <%= collection_select(:operator_weapon, :grip_id, @grips, :id, :name) %> <br><br>
 
     <label for="secondary_laser">Laser:</label>
     <%= check_box :operator_weapon, :laser %> <br> <br>
