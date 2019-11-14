@@ -1,5 +1,6 @@
-# require 'pry'
 class OperatorsController < ApplicationController
+
+    before_action :authorize, only: [:new, :selection, :create, :update]
 
     def index
         @operators = Operator.all
@@ -26,9 +27,8 @@ class OperatorsController < ApplicationController
     end
 
     def create
-        # @user = User.find(1)
-        # params[:operator][:user_id] = @user.id
-        # binding.pry
+        @user = User.find(session[:user_id])
+        params[:operator][:user_id] = @user.id
         @operator = Operator.create(operator_params(:name, :attacker, :user_id))
         redirect_to "/operators/#{@operator.id}/selection"
     end
