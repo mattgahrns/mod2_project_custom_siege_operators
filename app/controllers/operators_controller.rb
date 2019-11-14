@@ -30,7 +30,7 @@ class OperatorsController < ApplicationController
         @user = User.find(session[:user_id])
         params[:operator][:user_id] = @user.id
         @operator = Operator.new(operator_params(:name, :attacker, :user_id))
-        if @operator.valid?
+        if params[:operator][:attacker]
             @operator.save
             redirect_to "/operators/#{@operator.id}/selection"
         else
