@@ -33,3 +33,12 @@
   a:hover, a:active {
     background-color: red;
   }
+
+  body {
+      background: #d8d3d3;
+  }
+
+  #ops {
+      align-content: center;
+      list-style-position: inside;
+  }
