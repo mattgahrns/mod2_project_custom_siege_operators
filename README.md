@@ -4,7 +4,7 @@
 
 I took insparation for this project from the video game Rainbow Six Siege. During a match of this game players switch sides between attack and defence and get to choose from a selection of specific operators on each side. Each operator comes standard with an unique gadget and a choice between one and three primary and secondary weapons. Attackers and Defenders can also choose between two options for utility such as frag gernades or barbed wire respectivley. 
 
-The goal of the project was to give fans and players of the game the ability to create custom operators. Gadgets and uitility are still attack and defence specific, but as in the game weapons can be shared between sides. However, as mentioned weapons are limited to an operator who is given a choice between one and three. When creating an operator with this application the user may choose from any weapons available in the game.
+The goal of the project was to give fans and players of the game the ability to create custom operators. Gadgets and uitility are still attack and defence specific, but as in the game weapons can be shared between sides. However, as mentioned, operators are limited to a selection of one to three specific weapons. When creating an operator with this application the user may choose from any weapons available in the game.
 
 ## User Stories
 1. As a user, I want to be able to create custom defenders and attackers.
@@ -12,6 +12,78 @@ The goal of the project was to give fans and players of the game the ability to 
 3. As a user, I want be able to see all the operators that have been created by all users.
 4. As a user, I want to be able to delete my custom operators.
 5. As a user, I want to be able to edit my username and password.
+
+## Schema
+
+```rb
+create_table "barrels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "gadgets", force: :cascade do |t|
+    t.string "name"
+    t.boolean "attacker"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "grips", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "operator_weapons", force: :cascade do |t|
+    t.integer "operator_id"
+    t.integer "weapon_id"
+    t.boolean "laser"
+    t.integer "sight_id"
+    t.integer "barrel_id"
+    t.integer "grip_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "operators", force: :cascade do |t|
+    t.string "name"
+    t.boolean "attacker"
+    t.integer "gadget_id"
+    t.integer "utility_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "speedarmor"
+  end
+
+  create_table "sights", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "utilities", force: :cascade do |t|
+    t.string "name"
+    t.boolean "attacker"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.string "name"
+    t.boolean "primary"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+```
 
 ## Functinality
 The index page of the website displays all of the operators that have been created by all of the users. If a user wants to create a new custom operator they must be logged in. The application has a handy dynamic nav bar at the top where a user can go to the home page, log in, or sign up. If they are logged in it shows options for the home page, to make a new operator, to view your own operators, to view your account settings, and to log out. On the index page users can click on any operator's name to visit the operator show page. They can also click on that user's username to view their user page and see all the operators that that user has created.
