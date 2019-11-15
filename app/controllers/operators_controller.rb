@@ -8,7 +8,6 @@ class OperatorsController < ApplicationController
 
     def new
         @operator = Operator.new
-        @stale_form_check_timestamp = Time.now.to_i
     end
 
     def selection
